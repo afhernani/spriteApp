@@ -26,8 +26,8 @@ namespace SpriteApp
             {
                 Filter = "Gif file(*.gif*)|*.gif|All files(*.*)|*.*",
                 Title = @"Open gif to load",
-                InitialDirectory = Environment.CurrentDirectory,
-                RestoreDirectory = true,
+                //InitialDirectory = Environment.CurrentDirectory,
+                //RestoreDirectory = true,
                 Multiselect = true
             };
 
@@ -78,7 +78,7 @@ namespace SpriteApp
             {
                 Filter = "Gif file(*.gif*)|*.gif",
                 Title = @"Save gif to disk",
-                InitialDirectory = Environment.CurrentDirectory,
+                //InitialDirectory = Environment.CurrentDirectory,
                 RestoreDirectory = true,
             };
             if (savefile.ShowDialog() == DialogResult.OK)
