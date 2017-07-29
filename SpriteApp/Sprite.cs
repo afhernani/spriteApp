@@ -75,12 +75,18 @@ namespace SpriteApp
                 todo = typeToSave.Imagens;
                 SaveFileToDisk();
             }
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                todo = typeToSave.current;
+                SaveFileToDisk();
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
         public enum typeToSave
         {
             Gif,
-            Imagens
+            Imagens,
+            current
         }
         typeToSave todo = typeToSave.Gif;
         private void SaveFileToDisk()
@@ -101,6 +107,9 @@ namespace SpriteApp
                         break;
                     case typeToSave.Imagens:
                         spritePane1.SaveAllImagens(savefile.FileName);
+                        break;
+                    case typeToSave.current:
+                        //spritePane1.saveCurrentImagen(savefile.FileName);
                         break;
                     default:
                         break;
