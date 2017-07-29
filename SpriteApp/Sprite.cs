@@ -67,23 +67,45 @@ namespace SpriteApp
         {
             if (keyData == (Keys.Control | Keys.G))
             {
+                todo = typeToSave.Gif;
+                SaveFileToDisk();
+            }
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                todo = typeToSave.Imagens;
                 SaveFileToDisk();
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
+        public enum typeToSave
+        {
+            Gif,
+            Imagens
+        }
+        typeToSave todo = typeToSave.Gif;
         private void SaveFileToDisk()
         {
             SaveFileDialog savefile = new SaveFileDialog()
             {
-                Filter = "Gif file(*.gif*)|*.gif",
+                Filter = "Gif file(*.gif*)|*.gif|Jpg file(*.jpg*)|*.jpg|All files(*.*)|*.*",
                 Title = @"Save gif to disk",
                 //InitialDirectory = Environment.CurrentDirectory,
                 RestoreDirectory = true,
             };
             if (savefile.ShowDialog() == DialogResult.OK)
             {
-                spritePane1.SaveGif(savefile.FileName);
+                switch (todo)
+                {
+                    case typeToSave.Gif:
+                        spritePane1.SaveGif(savefile.FileName);
+                        break;
+                    case typeToSave.Imagens:
+                        spritePane1.SaveAllImagens(savefile.FileName);
+                        break;
+                    default:
+                        break;
+                }
+                
             }
         }
     }
