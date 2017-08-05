@@ -37,11 +37,7 @@ namespace SpriteApp
                 name_Only = openfile.SafeFileName;
                 if (Path.GetExtension(filename).ToUpper().Equals(".GIF"))
                 {
-                    //imagegif = new ImageGif(filename);
-                    spritePane1.SetImageGif = new ImageGif(filename);
-                    //spritePane1.Refresh();
-                    //spritePane1.InitialImage(0);
-                    //label.Text = imagegif.Count.ToString();
+                    spritePane1.FilePath = filename;
                     spritePane1.SizeMode = PictureBoxSizeMode.Zoom;
                 }
                 foreach (var item in openfile.FileNames)
@@ -67,28 +63,36 @@ namespace SpriteApp
         {
             if (keyData == (Keys.Control | Keys.G))
             {
-                todo = typeToSave.Gif;
+                todo = TypeToSave.Gif;
                 SaveFileToDisk();
             }
             if (keyData == (Keys.Control | Keys.S))
             {
-                todo = typeToSave.Imagens;
+                todo = TypeToSave.Imagens;
                 SaveFileToDisk();
             }
-            if (keyData == (Keys.Control | Keys.S))
+            if (keyData == (Keys.Control | Keys.C))
             {
-                todo = typeToSave.current;
+                todo = TypeToSave.current;
                 SaveFileToDisk();
+            }
+            if (keyData == (Keys.Control | Keys.H))
+            {
+                this.Text = ("<CTRL> + H help comands");
+                MessageBox.Show(" shotkut:\n" +
+                    "<CTRL> + G Save Gif\n" +
+                    "<CTRL> + S save all imagens to disk\n" +
+                    "<CTRL> + C save current image to disk");
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        public enum typeToSave
+        public enum TypeToSave
         {
             Gif,
             Imagens,
             current
         }
-        typeToSave todo = typeToSave.Gif;
+        TypeToSave todo = TypeToSave.Gif;
         private void SaveFileToDisk()
         {
             SaveFileDialog savefile = new SaveFileDialog()
@@ -102,19 +106,19 @@ namespace SpriteApp
             {
                 switch (todo)
                 {
-                    case typeToSave.Gif:
+                    case TypeToSave.Gif:
                         spritePane1.SaveGif(savefile.FileName);
                         break;
-                    case typeToSave.Imagens:
+                    case TypeToSave.Imagens:
                         spritePane1.SaveAllImagens(savefile.FileName);
                         break;
-                    case typeToSave.current:
-                        //spritePane1.saveCurrentImagen(savefile.FileName);
+                    case TypeToSave.current:
+                        spritePane1.SaveCurrentImage();
                         break;
                     default:
                         break;
                 }
-                
+
             }
         }
     }
