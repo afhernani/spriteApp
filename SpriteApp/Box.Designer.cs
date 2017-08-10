@@ -33,7 +33,7 @@
             // 
             // imagenBox1
             // 
-            this.imagenBox1.Automatic = false;
+            this.imagenBox1.Automatic = true;
             this.imagenBox1.CausesValidation = false;
             this.imagenBox1.CurrentFrame = -1;
             this.imagenBox1.Dock = System.Windows.Forms.DockStyle.Fill;

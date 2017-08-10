@@ -58,13 +58,20 @@ namespace SpriteApp
                 this.Text = ("<CTRL> + C save current image to disk");
                 SaveCurrentImageToDisk();
             }
+            if (keyData == (Keys.Control | Keys.T))
+            {
+                this.Text = ("<CTRL> + T active-desactive Automatic");
+                imagenBox1.Automatic = !imagenBox1.Automatic;
+            }
             if (keyData == (Keys.Control | Keys.H))
             {
                 this.Text = ("<CTRL> + H help comands");
                 MessageBox.Show(" shotkut:\n" +
                 "<CTRL> + G Save Gif\n" +
                 "<CTRL> + S save all imagens to disk\n" +
-                "<CTRL> + C save current image to disk");
+                "<CTRL> + C save current image to disk"+
+                "<CTRL> + T active-desactive Automatic"
+                );
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
