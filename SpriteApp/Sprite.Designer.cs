@@ -33,7 +33,10 @@
             // 
             // spritePane1
             // 
+            this.spritePane1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.spritePane1.CurrentFrame = -1;
             this.spritePane1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spritePane1.FilePath = "Not";
             this.spritePane1.Location = new System.Drawing.Point(0, 0);
             this.spritePane1.Name = "spritePane1";
             this.spritePane1.SetImageGif = null;
