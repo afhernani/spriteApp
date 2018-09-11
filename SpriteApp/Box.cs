@@ -120,5 +120,21 @@ namespace SpriteApp
             }
         }
 
+        private void Box_Load(object sender, EventArgs e)
+        {
+            string[] args = Environment.GetCommandLineArgs();
+            foreach( var arg in args){
+                if (System.IO.File.Exists(arg))
+                {
+                    //existe un fichero, ¿what extension?
+                    var Ext = System.IO.Path.GetExtension(arg).ToUpper();
+                    if(Ext == ".GIF" || Ext == ".JPG" || Ext == ".PNG")
+                    {
+                        //cargamos la imagen.
+                        imagenBox1.FromFile(arg);
+                    }
+                }
+            }
+        }
     }
 }

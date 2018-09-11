@@ -56,6 +56,7 @@
             this.Controls.Add(this.imagenBox1);
             this.Name = "Box";
             this.Text = "Box";
+            this.Load += new System.EventHandler(this.Box_Load);
             this.ResumeLayout(false);
 
         }
