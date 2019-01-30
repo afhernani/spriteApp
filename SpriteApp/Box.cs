@@ -85,6 +85,12 @@ namespace SpriteApp
                     testDialog.Dispose();
                 }
             }
+            if (keyData == (Keys.Control | Keys.R))
+            {
+                this.Text = ("<CTRL> + R Reset");
+                //TODO: planteamos el reset de las imagenes
+                //imagenBox1 = new LibPanes.ImagenBox();
+            }
             if (keyData == (Keys.Control | Keys.H))
             {
                 this.Text = ("<CTRL> + H help comands");
@@ -93,7 +99,8 @@ namespace SpriteApp
                 "<CTRL> + S save all imagens to disk\n" +
                 "<CTRL> + C save current image to disk\n"+
                 "<CTRL> + T active-desactive Automatic\n" +
-                "<CTRL> + I set Imagen-active\n"
+                "<CTRL> + I set Imagen-active\n" +
+                "<CTRL> + R Reset\n"
                 );
             }
             return base.ProcessCmdKey(ref msg, keyData);
