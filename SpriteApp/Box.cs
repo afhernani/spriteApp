@@ -69,8 +69,8 @@ namespace SpriteApp
                 MessageBox.Show(" shotkut:\n" +
                 "<CTRL> + G Save Gif\n" +
                 "<CTRL> + S save all imagens to disk\n" +
-                "<CTRL> + C save current image to disk"+
-                "<CTRL> + T active-desactive Automatic"
+                "<CTRL> + C save current image to disk\n"+
+                "<CTRL> + T active-desactive Automatic\n"
                 );
             }
             return base.ProcessCmdKey(ref msg, keyData);
