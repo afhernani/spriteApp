@@ -89,7 +89,7 @@ namespace SpriteApp
             {
                 this.Text = ("<CTRL> + R Reset");
                 //TODO: planteamos el reset de las imagenes
-                //imagenBox1 = new LibPanes.ImagenBox();
+                imagenBox1.Reset();
             }
             if (keyData == (Keys.Control | Keys.H))
             {
