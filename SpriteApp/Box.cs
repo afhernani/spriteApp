@@ -63,6 +63,28 @@ namespace SpriteApp
                 this.Text = ("<CTRL> + T active-desactive Automatic");
                 imagenBox1.Automatic = !imagenBox1.Automatic;
             }
+            if (keyData == (Keys.Control | Keys.I))
+            {
+                this.Text = ("<CTRL> + I set Imagen-active");
+                //definir una caja para dar entrada un valor
+                {
+                    Form2 testDialog = new Form2();
+                    testDialog.TextBox1 = imagenBox1.Count.ToString();
+                    string txtResult;
+                    // Show testDialog as a modal dialog and determine if DialogResult = OK.
+                    if (testDialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // Read the contents of testDialog's TextBox.
+                        txtResult = testDialog.TextBox1;
+                        imagenBox1.SetCurrentFrame = Int32.Parse(txtResult);
+                    }
+                    else
+                    {
+                        //txtResult = "Cancelled";
+                    }
+                    testDialog.Dispose();
+                }
+            }
             if (keyData == (Keys.Control | Keys.H))
             {
                 this.Text = ("<CTRL> + H help comands");
@@ -70,7 +92,8 @@ namespace SpriteApp
                 "<CTRL> + G Save Gif\n" +
                 "<CTRL> + S save all imagens to disk\n" +
                 "<CTRL> + C save current image to disk\n"+
-                "<CTRL> + T active-desactive Automatic\n"
+                "<CTRL> + T active-desactive Automatic\n" +
+                "<CTRL> + I set Imagen-active\n"
                 );
             }
             return base.ProcessCmdKey(ref msg, keyData);
